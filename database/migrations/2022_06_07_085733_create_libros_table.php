@@ -18,7 +18,7 @@ class CreateLibrosTable extends Migration
             $table->string('titulo', 150);
             $table->integer('autor_id', null, true)->unsigned()->index();
 
-            $table->foreign('id')->references('id')->on('autores')
+            $table->foreign('id')->references('id')->on('autors')
             ->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
