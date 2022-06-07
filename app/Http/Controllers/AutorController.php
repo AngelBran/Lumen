@@ -8,7 +8,7 @@ use App\Models\Autor;
 class AutorController extends Controller
 {
     public function getAll() {
-        $autores =  Autor::get(["id", "nombre"]);
+        $autores =  Autor::where("estado", 1)->get(["id", "nombre"]);
 
         return $autores;
     }
@@ -19,6 +19,15 @@ class AutorController extends Controller
             "estado" => $request->estado
         ]);
 
+        $autor->save();
+
+        return response()->json($autor);
+    }
+
+    public function delete(int $id) {
+        $autor = Autor::where('id', $id)->first();
+
+        $autor->estado = 0;
         $autor->save();
 
         return response()->json($autor);
