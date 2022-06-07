@@ -18,3 +18,4 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/autores', 'AutorController@getAll');
+$router->post('/autores/new', 'AutorController@create');
