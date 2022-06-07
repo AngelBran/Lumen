@@ -18,5 +18,8 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/autores', 'AutorController@getAll');
+$router->get('/autores/{id}', 'AutorController@getById');
+
 $router->post('/autores', 'AutorController@create');
+$router->put('/autores/{id}', 'AutorController@update');
 $router->delete('/autores/{id}', 'AutorController@delete');

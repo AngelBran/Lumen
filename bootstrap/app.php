@@ -95,6 +95,12 @@ $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
 
+# Flipbox
+$app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+
+# Anik\From-request
+$app->register(\Anik\Form\FormRequestServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
@@ -111,7 +117,5 @@ $app->router->group([
 ], function ($router) {
     require __DIR__.'/../routes/web.php';
 });
-
-$app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 
 return $app;
